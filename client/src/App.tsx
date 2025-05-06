@@ -23,7 +23,7 @@ function App() {
 
   useEffect(() => {
     // Initialize Microsoft Clarity on app load
-    initClarity("DEMO_PROJECT_ID");
+    initClarity("rfk9knzyjx");
   }, [initClarity]);
 
   return (
