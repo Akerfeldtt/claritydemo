@@ -8,29 +8,30 @@ import ReviewStep from "./ReviewStep";
 import { Button } from "@/components/ui/button";
 import { useTheme } from "@/context/ThemeContext";
 import SuccessMessage from "./SuccessMessage";
-import { clarity } from 'react-microsoft-clarity';
+import { clarity } from "react-microsoft-clarity";
 import { ArrowLeft, ArrowRight, Check, RefreshCw } from "lucide-react";
 
 const ThemeCustomizer = () => {
-  const { theme, nextStep, prevStep, resetToStep, isThemeApplied, setThemeApplied } =
-    useTheme();
-  const { setTag, setEvent, upgradeClarity, identifyUser } = clarity();
+  const {
+    theme,
+    nextStep,
+    prevStep,
+    resetToStep,
+    isThemeApplied,
+    setThemeApplied,
+  } = useTheme();
 
   useEffect(() => {
     // Set Clarity tag for current step
-    setTag("step", `Step ${theme.currentStep}`);
-    
+    clarity.setTag("step", `Step ${theme.currentStep}`);
+
     // Identify user on step 1
-    if (theme.currentStep === 1) {
-      identifyUser("demo_user_1", { role: "tester" });
-    }
-  }, [theme.currentStep, setTag, identifyUser]);
+  }, [theme.currentStep, clarity.setTag]);
 
   const applyTheme = () => {
     setThemeApplied(true);
-    setEvent("themeSubmitted");
-    upgradeClarity("completedCustomization");
-    
+    clarity.setEvent("themeSubmitted");
+
     // Show success message briefly, then reset to step 1
     setTimeout(() => {
       setThemeApplied(false);
@@ -49,7 +50,10 @@ const ThemeCustomizer = () => {
         </p>
       </header>
 
-      <StepIndicator currentStep={theme.currentStep} totalSteps={theme.totalSteps} />
+      <StepIndicator
+        currentStep={theme.currentStep}
+        totalSteps={theme.totalSteps}
+      />
 
       {!isThemeApplied ? (
         <Card className="max-w-3xl mx-auto bg-white rounded-xl shadow-md overflow-hidden mb-8 transition-all duration-300">
@@ -77,8 +81,8 @@ const ThemeCustomizer = () => {
                   Next <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               ) : (
-                <Button 
-                  onClick={applyTheme} 
+                <Button
+                  onClick={applyTheme}
                   className="bg-secondary hover:bg-green-600 text-white"
                 >
                   Apply Theme <Check className="ml-2 h-4 w-4" />
