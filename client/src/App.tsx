@@ -6,7 +6,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/not-found";
 import Home from "@/pages/home";
 import { useEffect } from "react";
-import { useClarity } from "@/hooks/useClarity";
+import { clarity } from 'react-microsoft-clarity';
 import { ThemeProvider } from "@/context/ThemeContext";
 
 function Router() {
@@ -19,7 +19,7 @@ function Router() {
 }
 
 function App() {
-  const { initClarity } = useClarity();
+  const { initClarity } = clarity();
 
   useEffect(() => {
     // Initialize Microsoft Clarity on app load

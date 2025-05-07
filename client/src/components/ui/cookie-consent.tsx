@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { useClarity } from "@/hooks/useClarity";
+import { clarity } from 'react-microsoft-clarity';
 
 const CookieConsent = () => {
   const [visible, setVisible] = useState(false);
-  const { giveConsent } = useClarity();
+  const { giveConsent } = clarity();
 
   useEffect(() => {
     // Show cookie banner after 2 seconds

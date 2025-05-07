@@ -8,13 +8,13 @@ import ReviewStep from "./ReviewStep";
 import { Button } from "@/components/ui/button";
 import { useTheme } from "@/context/ThemeContext";
 import SuccessMessage from "./SuccessMessage";
-import { useClarity } from "@/hooks/useClarity";
+import { clarity } from 'react-microsoft-clarity';
 import { ArrowLeft, ArrowRight, Check, RefreshCw } from "lucide-react";
 
 const ThemeCustomizer = () => {
   const { theme, nextStep, prevStep, resetToStep, isThemeApplied, setThemeApplied } =
     useTheme();
-  const { setTag, setEvent, upgradeClarity, identifyUser } = useClarity();
+  const { setTag, setEvent, upgradeClarity, identifyUser } = clarity();
 
   useEffect(() => {
     // Set Clarity tag for current step
