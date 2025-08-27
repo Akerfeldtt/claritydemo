@@ -10,8 +10,8 @@
       "command": "pnpm dev",
       "runAtStart": true,
       "preview": {
-        "port": 5173,
-        "proxyTarget": "http://localhost:5173",
+        "port": 5000,
+        "proxyTarget": "http://localhost:5000",
         "openInNewTab": true
       }
     }
